@@ -1,4 +1,4 @@
-package com.github.ducknowledges.lib;
+package com.github.ducknowledges.recursion;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

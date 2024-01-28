@@ -1,4 +1,4 @@
-package com.github.ducknowledges.lib;
+package com.github.ducknowledges.recursion;
 
 public class Recursion {
 
