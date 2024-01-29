@@ -10,4 +10,11 @@ public class Recursion {
     }
     return base * recursionPow(base, power - 1);
   }
+
+  public static int recursionSumOfDigits(int number) {
+    if (number == 0) {
+      return 0;
+    }
+    return number % 10 + recursionSumOfDigits(number / 10);
+  }
 }

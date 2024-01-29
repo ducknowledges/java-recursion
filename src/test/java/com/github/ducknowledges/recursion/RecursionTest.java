@@ -16,4 +16,13 @@ class RecursionTest {
 
     assertThat(actual).isEqualTo(expected);
   }
+
+  @ParameterizedTest
+  @CsvSource({"0, 0", "1, 1", "12, 3", "123, 6", "321, 6"})
+  @DisplayName("should return the correct number of recursive sum of digits")
+  void shouldCorrectlyRecursiveSumOfDigits(int number, int expected) {
+    int actual = Recursion.recursionSumOfDigits(number);
+
+    assertThat(actual).isEqualTo(expected);
+  }
 }
