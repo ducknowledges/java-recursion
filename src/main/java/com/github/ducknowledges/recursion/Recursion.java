@@ -1,5 +1,7 @@
 package com.github.ducknowledges.recursion;
 
+import java.util.List;
+
 public class Recursion {
 
   private Recursion() {}
@@ -16,5 +18,13 @@ public class Recursion {
       return 0;
     }
     return number % 10 + recursionSumOfDigits(number / 10);
+  }
+
+  public static int recursionLengthCount(List<?> list) {
+    if (list.isEmpty()) {
+      return 0;
+    }
+    list.remove(0);
+    return 1 + recursionLengthCount(list);
   }
 }

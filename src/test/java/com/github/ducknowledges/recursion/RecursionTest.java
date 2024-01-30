@@ -2,9 +2,13 @@ package com.github.ducknowledges.recursion;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class RecursionTest {
 
@@ -24,5 +28,16 @@ class RecursionTest {
     int actual = Recursion.recursionSumOfDigits(number);
 
     assertThat(actual).isEqualTo(expected);
+  }
+
+  @ParameterizedTest
+  @ValueSource(strings = {"", "1,2", "1,2,3,4,5,6"})
+  @DisplayName("xxx")
+  void shouldCorrectlyRecursiveCountListSize(String string) {
+    List<String> referenceList = Arrays.stream(string.split(",")).toList();
+    List<String> list = new ArrayList<>(referenceList);
+    int actual = Recursion.recursionLengthCount(list);
+
+    assertThat(actual).isEqualTo(referenceList.size());
   }
 }
