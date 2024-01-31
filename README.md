@@ -12,3 +12,6 @@
 - [x] recursive list length calculation
   - [solution](https://github.com/ducknowledges/java-recursion/blob/c59c590851f8498c1b52ad9320aa5d8ed3d0a82d/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L23-L29)
   - [test](https://github.com/ducknowledges/java-recursion/blob/c59c590851f8498c1b52ad9320aa5d8ed3d0a82d/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L36-L42)
+- [x] recursive check if a string is a palindrome
+  - [solution](https://github.com/ducknowledges/java-recursion/blob/c2649e8a4b82ff3af1cabfcc1a20edf49b874bd9/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L31-L45)
+  - [test](https://github.com/ducknowledges/java-recursion/blob/c2649e8a4b82ff3af1cabfcc1a20edf49b874bd9/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L44-L60)
