@@ -32,7 +32,15 @@ public class Recursion {
     if (string.length() <= 1) {
       return true;
     }
-    return string.charAt(0) == string.charAt(string.length() - 1)
-        && recursiveIsPalindrome(string.substring(1, string.length() - 1));
+    return isEqualFirstAndLastChar(string)
+        && recursiveIsPalindrome(getWithoutFirstAndLastChar(string));
+  }
+
+  private static boolean isEqualFirstAndLastChar(String string) {
+    return string.charAt(0) == string.charAt(string.length() - 1);
+  }
+
+  private static String getWithoutFirstAndLastChar(String string) {
+    return string.substring(1, string.length() - 1);
   }
 }
