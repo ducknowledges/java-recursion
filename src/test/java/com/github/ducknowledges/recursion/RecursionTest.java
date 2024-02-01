@@ -51,7 +51,7 @@ class RecursionTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = {"ab", "abc", "abca", "aacaaa"})
+  @ValueSource(strings = {"ab", "abc", "abca", "aacaaa", "abxdedcba"})
   @DisplayName("should return False if string is not palindrome")
   void shouldRecursiveCheckWhenStringIsNotPalindrome(String string) {
     boolean actual = Recursion.recursiveIsPalindrome(string);

@@ -29,18 +29,13 @@ public class Recursion {
   }
 
   public static boolean recursiveIsPalindrome(String string) {
-    if (string.length() <= 1) {
+    int strLength = string.length();
+    if (strLength <= 1) {
       return true;
     }
-    return isEqualFirstAndLastChar(string)
-        && recursiveIsPalindrome(getWithoutFirstAndLastChar(string));
-  }
-
-  private static boolean isEqualFirstAndLastChar(String string) {
-    return string.charAt(0) == string.charAt(string.length() - 1);
-  }
-
-  private static String getWithoutFirstAndLastChar(String string) {
-    return string.substring(1, string.length() - 1);
+    if (string.charAt(0) != string.charAt(strLength - 1)) {
+      return false;
+    }
+    return recursiveIsPalindrome(string.substring(1, strLength - 1));
   }
 }
