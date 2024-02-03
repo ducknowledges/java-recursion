@@ -2,6 +2,8 @@ package com.github.ducknowledges.recursion;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -57,5 +59,36 @@ class RecursionTest {
     boolean actual = Recursion.recursiveIsPalindrome(string);
 
     assertThat(actual).isFalse();
+  }
+
+  @ParameterizedTest
+  @CsvSource({"1234567, 246", "888, 888", "585, 8"})
+  @DisplayName("should print recursive odd numbers")
+  void shouldCorrectlyRecursivePrintOddNumbers(String numbers, String expectedOddNumbers) {
+    ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outputStreamCaptor));
+    List<Integer> referenceList = Arrays.stream(numbers.split("")).map(Integer::parseInt).toList();
+
+    Recursion.recursivePrintOddNumbers(referenceList);
+    String printedOddNumbers = outputStreamCaptor.toString();
+
+    assertThat(printedOddNumbers).isEqualTo(expectedOddNumbers);
+  }
+
+  @ParameterizedTest
+  @ValueSource(strings = {"", "1357"})
+  @DisplayName("should print empty string")
+  void shouldCorrectlyRecursivePrintEmptyString(String numbers) {
+    ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outputStreamCaptor));
+    List<Integer> referenceList =
+        numbers.isEmpty()
+            ? List.of()
+            : Arrays.stream(numbers.split("")).map(Integer::parseInt).toList();
+
+    Recursion.recursivePrintOddNumbers(referenceList);
+    String printedOddNumbers = outputStreamCaptor.toString();
+
+    assertThat(printedOddNumbers).isEmpty();
   }
 }

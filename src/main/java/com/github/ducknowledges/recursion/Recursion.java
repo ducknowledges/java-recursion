@@ -38,4 +38,17 @@ public class Recursion {
     }
     return recursiveIsPalindrome(string.substring(1, strLength - 1));
   }
+
+  public static void recursivePrintOddNumbers(List<Integer> numbers) {
+    System.out.print(getOddNumberStr(numbers, 0));
+  }
+
+  public static String getOddNumberStr(List<Integer> numbers, int numberIndex) {
+    if (numberIndex >= numbers.size()) {
+      return "";
+    }
+    Integer number = numbers.get(numberIndex);
+    String printedNumber = number % 2 == 0 ? number.toString() : "";
+    return printedNumber.concat(getOddNumberStr(numbers, numberIndex + 1));
+  }
 }
