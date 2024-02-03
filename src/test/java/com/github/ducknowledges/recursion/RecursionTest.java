@@ -64,12 +64,12 @@ class RecursionTest {
   @ParameterizedTest
   @CsvSource({"1234567, 246", "888, 888", "585, 8"})
   @DisplayName("should print recursive odd numbers")
-  void shouldCorrectlyRecursivePrintOddNumbers(String numbers, String expectedOddNumbers) {
+  void shouldCorrectlyRecursivePrintEvenNumbers(String numbers, String expectedOddNumbers) {
     ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     System.setOut(new PrintStream(outputStreamCaptor));
     List<Integer> referenceList = Arrays.stream(numbers.split("")).map(Integer::parseInt).toList();
 
-    Recursion.recursivePrintOddNumbers(referenceList);
+    Recursion.recursivePrintEvenNumbers(referenceList);
     String printedOddNumbers = outputStreamCaptor.toString();
 
     assertThat(printedOddNumbers).isEqualTo(expectedOddNumbers);
@@ -86,7 +86,7 @@ class RecursionTest {
             ? List.of()
             : Arrays.stream(numbers.split("")).map(Integer::parseInt).toList();
 
-    Recursion.recursivePrintOddNumbers(referenceList);
+    Recursion.recursivePrintEvenNumbers(referenceList);
     String printedOddNumbers = outputStreamCaptor.toString();
 
     assertThat(printedOddNumbers).isEmpty();
