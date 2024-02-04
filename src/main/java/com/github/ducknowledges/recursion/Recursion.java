@@ -51,4 +51,16 @@ public class Recursion {
     String printedNumber = number % 2 == 0 ? number.toString() : "";
     return printedNumber.concat(getEvenNumberStr(numbers, numberIndex + 1));
   }
+
+  public static void recursivePrintEvenIndexes(List<?> list) {
+    System.out.print(getEvenIndexesStr(list.size(), 0));
+  }
+
+  public static String getEvenIndexesStr(int listSize, Integer listIndex) {
+    if (listIndex >= listSize) {
+      return "";
+    }
+    String printedIndex = listIndex % 2 == 0 ? listIndex.toString() : "";
+    return printedIndex.concat(getEvenIndexesStr(listSize, listIndex + 1));
+  }
 }

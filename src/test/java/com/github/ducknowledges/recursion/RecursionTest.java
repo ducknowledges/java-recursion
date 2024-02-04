@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -63,21 +64,21 @@ class RecursionTest {
 
   @ParameterizedTest
   @CsvSource({"1234567, 246", "888, 888", "585, 8"})
-  @DisplayName("should print recursive odd numbers")
-  void shouldCorrectlyRecursivePrintEvenNumbers(String numbers, String expectedOddNumbers) {
+  @DisplayName("printEvenNumbers should print recursive even numbers")
+  void shouldCorrectlyRecursivePrintEvenNumbers(String numbers, String expectedEvenNumbers) {
     ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     System.setOut(new PrintStream(outputStreamCaptor));
     List<Integer> referenceList = Arrays.stream(numbers.split("")).map(Integer::parseInt).toList();
 
     Recursion.recursivePrintEvenNumbers(referenceList);
-    String printedOddNumbers = outputStreamCaptor.toString();
+    String printedEvenNumbers = outputStreamCaptor.toString();
 
-    assertThat(printedOddNumbers).isEqualTo(expectedOddNumbers);
+    assertThat(printedEvenNumbers).isEqualTo(expectedEvenNumbers);
   }
 
   @ParameterizedTest
   @ValueSource(strings = {"", "1357"})
-  @DisplayName("should print empty string")
+  @DisplayName("printEvenNumbers should print empty string")
   void shouldCorrectlyRecursivePrintEmptyString(String numbers) {
     ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     System.setOut(new PrintStream(outputStreamCaptor));
@@ -87,8 +88,35 @@ class RecursionTest {
             : Arrays.stream(numbers.split("")).map(Integer::parseInt).toList();
 
     Recursion.recursivePrintEvenNumbers(referenceList);
-    String printedOddNumbers = outputStreamCaptor.toString();
+    String printedEvenNumbers = outputStreamCaptor.toString();
 
-    assertThat(printedOddNumbers).isEmpty();
+    assertThat(printedEvenNumbers).isEmpty();
+  }
+
+  @ Test
+  @DisplayName("should print recursive even numbers")
+  void shouldCorrectlyRecursivePrintEvenIndexesOfList() {
+    ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outputStreamCaptor));
+    List<Integer> referenceList = List.of(0, 1, 2, 3, 4, 5, 6, 7);
+    String expectedEvenIndexes = "0246";
+
+    Recursion.recursivePrintEvenIndexes(referenceList);
+    String printedEvenIndexes = outputStreamCaptor.toString();
+
+    assertThat(printedEvenIndexes).isEqualTo(expectedEvenIndexes);
+  }
+
+  @Test
+  @DisplayName("recursivePrintEvenIndexes should print empty string")
+  void shouldCorrectlyRecursivePrintEmptyIndexes() {
+    ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outputStreamCaptor));
+    List<Integer> referenceList = List.of();
+
+    Recursion.recursivePrintEvenIndexes(referenceList);
+    String printedEvenIndexes = outputStreamCaptor.toString();
+
+    assertThat(printedEvenIndexes).isEmpty();
   }
 }
