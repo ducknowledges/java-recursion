@@ -53,14 +53,12 @@ public class Recursion {
   }
 
   public static void recursivePrintEvenIndexes(List<?> list) {
-    printEvenIndexes(list.size(), 0);
+    printEvenIndexes(list, 0);
   }
 
-  private static void printEvenIndexes(int listSize, Integer listIndex) {
-    if (listIndex >= listSize) return;
-    if (listIndex % 2 == 0) {
-      System.out.print(listIndex);
-    }
-    printEvenIndexes(listSize, listIndex + 1);
+  private static void printEvenIndexes(List<?> list, int listIndex) {
+    if (listIndex >= list.size()) return;
+    System.out.print(list.get(listIndex));
+    printEvenIndexes(list, listIndex + 2);
   }
 }

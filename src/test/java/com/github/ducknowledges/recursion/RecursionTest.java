@@ -94,12 +94,12 @@ class RecursionTest {
   }
 
   @Test
-  @DisplayName("should print recursive even numbers")
+  @DisplayName("should print recursive list elements with even index")
   void shouldCorrectlyRecursivePrintEvenIndexesOfList() {
     ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     System.setOut(new PrintStream(outputStreamCaptor));
-    List<Integer> referenceList = List.of(0, 1, 2, 3, 4, 5, 6, 7);
-    String expectedEvenIndexes = "0246";
+    List<?> referenceList = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8);
+    String expectedEvenIndexes = "02468";
 
     Recursion.recursivePrintEvenIndexes(referenceList);
     String printedEvenIndexes = outputStreamCaptor.toString();
