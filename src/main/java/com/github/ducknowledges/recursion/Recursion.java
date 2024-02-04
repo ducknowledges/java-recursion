@@ -40,27 +40,27 @@ public class Recursion {
   }
 
   public static void recursivePrintEvenNumbers(List<Integer> numbers) {
-    System.out.print(getEvenNumberStr(numbers, 0));
+    printEvenNumbers(numbers, 0);
   }
 
-  private static String getEvenNumberStr(List<Integer> numbers, int numberIndex) {
-    if (numberIndex >= numbers.size()) {
-      return "";
-    }
+  private static void printEvenNumbers(List<Integer> numbers, int numberIndex) {
+    if (numberIndex >= numbers.size()) return;
     Integer number = numbers.get(numberIndex);
-    String printedNumber = number % 2 == 0 ? number.toString() : "";
-    return printedNumber.concat(getEvenNumberStr(numbers, numberIndex + 1));
+    if (number % 2 == 0) {
+      System.out.print(number);
+    }
+    printEvenNumbers(numbers, numberIndex + 1);
   }
 
   public static void recursivePrintEvenIndexes(List<?> list) {
-    System.out.print(getEvenIndexesStr(list.size(), 0));
+    printEvenIndexes(list.size(), 0);
   }
 
-  private static String getEvenIndexesStr(int listSize, Integer listIndex) {
-    if (listIndex >= listSize) {
-      return "";
+  private static void printEvenIndexes(int listSize, Integer listIndex) {
+    if (listIndex >= listSize) return;
+    if (listIndex % 2 == 0) {
+      System.out.print(listIndex);
     }
-    String printedIndex = listIndex % 2 == 0 ? listIndex.toString() : "";
-    return printedIndex.concat(getEvenIndexesStr(listSize, listIndex + 1));
+    printEvenIndexes(listSize, listIndex + 1);
   }
 }
