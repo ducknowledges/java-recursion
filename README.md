@@ -19,5 +19,5 @@
   - [solution](https://github.com/ducknowledges/java-recursion/blob/ef425d1d27302880cc40b35c534c6341bbc68fac/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L42-L53)
   - [test](https://github.com/ducknowledges/java-recursion/blob/ef425d1d27302880cc40b35c534c6341bbc68fac/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L65-L94)
 - [x] recursive print list elements with even indexes;
-  - [solution](https://github.com/ducknowledges/java-recursion/blob/ef425d1d27302880cc40b35c534c6341bbc68fac/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L55-L65)
-  - [test](https://github.com/ducknowledges/java-recursion/blob/ef425d1d27302880cc40b35c534c6341bbc68fac/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L96-L121)
+  - [solution](https://github.com/ducknowledges/java-recursion/blob/88c51f1d001ad963979d494d56d88e9bfb93189b/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L55-L63)
+  - [test](https://github.com/ducknowledges/java-recursion/blob/88c51f1d001ad963979d494d56d88e9bfb93189b/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L96-L121)
