@@ -93,7 +93,7 @@ class RecursionTest {
     assertThat(printedEvenNumbers).isEmpty();
   }
 
-  @ Test
+  @Test
   @DisplayName("should print recursive even numbers")
   void shouldCorrectlyRecursivePrintEvenIndexesOfList() {
     ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();

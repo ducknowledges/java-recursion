@@ -43,7 +43,7 @@ public class Recursion {
     System.out.print(getEvenNumberStr(numbers, 0));
   }
 
-  public static String getEvenNumberStr(List<Integer> numbers, int numberIndex) {
+  private static String getEvenNumberStr(List<Integer> numbers, int numberIndex) {
     if (numberIndex >= numbers.size()) {
       return "";
     }
@@ -56,7 +56,7 @@ public class Recursion {
     System.out.print(getEvenIndexesStr(list.size(), 0));
   }
 
-  public static String getEvenIndexesStr(int listSize, Integer listIndex) {
+  private static String getEvenIndexesStr(int listSize, Integer listIndex) {
     if (listIndex >= listSize) {
       return "";
     }
