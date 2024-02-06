@@ -61,4 +61,23 @@ public class Recursion {
     System.out.print(list.get(listIndex));
     printEvenIndexes(list, listIndex + 2);
   }
+
+  public static int recursiveFindSecondMax(List<Integer> numbers) {
+    int beginIndex = 0;
+    return findSecondMax(numbers, numbers.get(beginIndex), numbers.get(beginIndex), beginIndex);
+  }
+
+  private static int findSecondMax(List<Integer> numbers, int prevMax, int currentMax, int numberIndex) {
+    if (numberIndex >= numbers.size()) {
+      return prevMax;
+    }
+    int currentNumber = numbers.get(numberIndex);
+    if (currentNumber > currentMax) {
+      prevMax = currentMax;
+      currentMax = currentNumber;
+    } else if (currentNumber > prevMax) {
+      prevMax = currentNumber;
+    }
+    return findSecondMax(numbers, prevMax, currentMax, numberIndex + 1);
+  }
 }

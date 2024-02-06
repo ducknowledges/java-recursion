@@ -119,4 +119,13 @@ class RecursionTest {
 
     assertThat(printedEvenIndexes).isEmpty();
   }
+
+  @ParameterizedTest
+  @CsvSource({"12, 1", "25435, 5", "3254, 4", "123111, 2", "2222, 2", "889910, 9"})
+  @DisplayName("should recursive find second max value in list of numbers")
+  void shouldFindSecondMaxInNumbers(String numbersStr, int expected) {
+    List<Integer> numbers = Arrays.stream(numbersStr.split("")).map(Integer::parseInt).toList();
+    int actual = Recursion.recursiveFindSecondMax(numbers);
+    assertThat(actual).isEqualTo(expected);
+  }
 }
