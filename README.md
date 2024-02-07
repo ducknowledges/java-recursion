@@ -22,5 +22,5 @@
   - [solution](https://github.com/ducknowledges/java-recursion/blob/88c51f1d001ad963979d494d56d88e9bfb93189b/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L55-L63)
   - [test](https://github.com/ducknowledges/java-recursion/blob/88c51f1d001ad963979d494d56d88e9bfb93189b/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L96-L121)
 - [x] recursive finding the second maximum number in a list;
-  - [solution](https://github.com/ducknowledges/java-recursion/blob/ce8e54b31c94a238e170a6daff21626e46aea0a5/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L65-L82)
-  - [test](https://github.com/ducknowledges/java-recursion/blob/ce8e54b31c94a238e170a6daff21626e46aea0a5/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L123-L130)
+  - [solution](https://github.com/ducknowledges/java-recursion/blob/0474736f40596c8420f5a5508d3c6de98769592e/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L65-L82)
+  - [test](https://github.com/ducknowledges/java-recursion/blob/0474736f40596c8420f5a5508d3c6de98769592e/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L123-L130)
