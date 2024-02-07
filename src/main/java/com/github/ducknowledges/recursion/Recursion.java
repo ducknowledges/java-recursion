@@ -63,8 +63,9 @@ public class Recursion {
   }
 
   public static int recursiveFindSecondMax(List<Integer> numbers) {
-    int beginIndex = 0;
-    return findSecondMax(numbers, numbers.get(beginIndex), numbers.get(beginIndex), beginIndex);
+    int currentMax = Math.max(numbers.get(0), numbers.get(1));
+    int prevMax = Math.min(numbers.get(0), numbers.get(1));
+    return findSecondMax(numbers, prevMax, currentMax, 2);
   }
 
   private static int findSecondMax(List<Integer> numbers, int prevMax, int currentMax, int numberIndex) {
