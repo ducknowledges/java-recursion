@@ -24,3 +24,6 @@
 - [x] recursive finding the second maximum number in a list;
   - [solution](https://github.com/ducknowledges/java-recursion/blob/0474736f40596c8420f5a5508d3c6de98769592e/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L65-L82)
   - [test](https://github.com/ducknowledges/java-recursion/blob/0474736f40596c8420f5a5508d3c6de98769592e/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L123-L130)
+- [x] recursive search for all files in a given directory
+  - [solution](https://github.com/ducknowledges/java-recursion/blob/0dbaf24c557716c47221bce0812bc06e6f346e5e/src/main/java/com/github/ducknowledges/recursion/Recursion.java#L88-L104)
+  - [test](https://github.com/ducknowledges/java-recursion/blob/0dbaf24c557716c47221bce0812bc06e6f346e5e/src/test/java/com/github/ducknowledges/recursion/RecursionTest.java#L136-L176)
