@@ -3,7 +3,11 @@ package com.github.ducknowledges.recursion;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -127,5 +131,35 @@ class RecursionTest {
     List<Integer> numbers = Arrays.stream(numbersStr.split("")).map(Integer::parseInt).toList();
     int actual = Recursion.recursiveFindSecondMax(numbers);
     assertThat(actual).isEqualTo(expected);
+  }
+
+  @Test
+  @DisplayName("should recursive list files in directory and subdirectories")
+  void shouldRecusiveListFiles() throws IOException {
+    Path tempDir = Files.createTempDirectory("testDir");
+    Path subDir = Files.createTempDirectory(tempDir, "subDir");
+    Path emptySubDir = Files.createTempDirectory(tempDir, "emptySubDir");
+    Path subSubDir = Files.createTempDirectory(subDir, "subSubDir");
+    Path file1 = Files.createTempFile(tempDir, "testFile1", ".txt");
+    Path file2 = Files.createTempFile(tempDir, "testFile2", ".txt");
+    Path file3 = Files.createTempFile(subDir, "testFile3", ".txt");
+    Path file4 = Files.createTempFile(subDir, "testFile4", ".txt");
+    Path file5 = Files.createTempFile(subSubDir, "testFile5", ".txt");
+
+    List<File> fileList = Recursion.recursiveListFiles(tempDir.toString());
+
+    assertThat(fileList)
+        .hasSize(5)
+        .contains(file1.toFile(), file2.toFile(), file3.toFile(), file4.toFile(), file5.toFile());
+
+    Files.deleteIfExists(file1);
+    Files.deleteIfExists(file2);
+    Files.deleteIfExists(file3);
+    Files.deleteIfExists(file4);
+    Files.deleteIfExists(file5);
+    Files.deleteIfExists(subSubDir);
+    Files.deleteIfExists(subDir);
+    Files.deleteIfExists(emptySubDir);
+    Files.deleteIfExists(tempDir);
   }
 }

@@ -1,5 +1,7 @@
 package com.github.ducknowledges.recursion;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Recursion {
@@ -68,7 +70,8 @@ public class Recursion {
     return findSecondMax(numbers, prevMax, currentMax, 2);
   }
 
-  private static int findSecondMax(List<Integer> numbers, int prevMax, int currentMax, int numberIndex) {
+  private static int findSecondMax(
+      List<Integer> numbers, int prevMax, int currentMax, int numberIndex) {
     if (numberIndex >= numbers.size()) {
       return prevMax;
     }
@@ -80,5 +83,23 @@ public class Recursion {
       prevMax = currentNumber;
     }
     return findSecondMax(numbers, prevMax, currentMax, numberIndex + 1);
+  }
+
+  public static List<File> recursiveListFiles(String dirPath) {
+    File directory = new File(dirPath);
+    File[] directoryFiles = directory.listFiles();
+    if (directoryFiles == null) {
+      return List.of();
+    }
+    List<File> files = new ArrayList<>();
+    for (File file : directoryFiles) {
+      if (file.isDirectory()) {
+        List<File> dirFiles = recursiveListFiles(file.getPath());
+        files.addAll(dirFiles);
+      } else {
+        files.add(file);
+      }
+    }
+    return files;
   }
 }
