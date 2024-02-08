@@ -162,4 +162,16 @@ class RecursionTest {
     Files.deleteIfExists(emptySubDir);
     Files.deleteIfExists(tempDir);
   }
+
+  @Test
+  @DisplayName("should recursive list empty files in empty directory")
+  void shouldRecusiveListEmptyFiles() throws IOException {
+    Path tempDir = Files.createTempDirectory("testDir");
+
+    List<File> fileList = Recursion.recursiveListFiles(tempDir.toString());
+
+    assertThat(fileList).isEmpty();
+
+    Files.deleteIfExists(tempDir);
+  }
 }
